@@ -5,8 +5,6 @@
 // This file is distributed under the University of Illinois Open Source
 // License. See LICENSE.TXT for details.
 //
-// Changes Copyright (C) 2011-2013 LunarG, Inc.
-//
 //===----------------------------------------------------------------------===//
 //
 // This file implements the visit functions for add, fadd, sub, and fsub.
@@ -355,11 +353,6 @@ Instruction *InstCombiner::visitFAdd(BinaryOperator &I) {
 
   if (Constant *RHSC = dyn_cast<Constant>(RHS)) {
     // X + 0 --> X
-
-    // In GLSL, FADD x (+/-)0 is always x
-    if (RHSC->isNullValue() || RHSC->isNegativeZeroValue())
-        return ReplaceInstUsesWith(I, LHS);
-
     if (ConstantFP *CFP = dyn_cast<ConstantFP>(RHSC)) {
       if (CFP->isExactlyValue(ConstantFP::getNegativeZero
                               (I.getType())->getValueAPF()))

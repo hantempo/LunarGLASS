@@ -5,8 +5,6 @@
 // This file is distributed under the University of Illinois Open Source
 // License. See LICENSE.TXT for details.
 //
-// Changes Copyright (C) 2011-2013 LunarG, Inc.
-//
 //===----------------------------------------------------------------------===//
 //
 // This pass performs global value numbering to eliminate fully redundant
@@ -1714,15 +1712,9 @@ bool GVN::processNonLocalLoad(LoadInst *LI) {
                                         LI->getAlignment(),
                                         UnavailablePred->getTerminator());
 
-    // LunarGLASS: Transfer all the old load's metadata to the new load,
-    // not just one particular metadata-kind.
-    SmallVector<std::pair<unsigned, MDNode *>, 4> MDs;
-    LI->getAllMetadata(MDs);
-
-    for (SmallVectorImpl<std::pair<unsigned, MDNode *> >::iterator
-             MI = MDs.begin(), ME = MDs.end(); MI != ME; ++MI) {
-      NewLoad->setMetadata(MI->first, MI->second);
-    }
+    // Transfer the old load's TBAA tag to the new load.
+    if (MDNode *Tag = LI->getMetadata(LLVMContext::MD_tbaa))
+      NewLoad->setMetadata(LLVMContext::MD_tbaa, Tag);
 
     // Transfer DebugLoc.
     NewLoad->setDebugLoc(LI->getDebugLoc());
@@ -1767,8 +1759,7 @@ static void patchReplacementInstruction(Value *Repl, Instruction *I) {
       MDNode *ReplMD = Metadata[i].second;
       switch(Kind) {
       default:
-          // LunarGLASS: preserve unknown metadata kinds
-          // ReplInst->setMetadata(Kind, NULL); // Remove unknown metadata
+        ReplInst->setMetadata(Kind, NULL); // Remove unknown metadata
         break;
       case LLVMContext::MD_dbg:
         llvm_unreachable("getAllMetadataOtherThanDebugLoc returned a MD_dbg");
