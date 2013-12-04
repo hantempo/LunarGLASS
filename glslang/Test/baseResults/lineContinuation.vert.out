@@ -1,0 +1,35 @@
+lineContinuation.vert
+ERROR: 0:6: '#error' : e1  
+ERROR: 0:11: '#error' : e2  
+ERROR: 0:18: '#error' : e3  
+ERROR: 3 compilation errors.  No code generated.
+
+
+ERROR: node is still EOpNull!
+0:20  Function Definition: main( (void)
+0:20    Function Parameters: 
+0:20    Sequence
+0:20      move second child to first child (highp 4-component vector of float)
+0:20        'gl_Position' (gl_Position highp 4-component vector of float)
+0:20        Construct vec4 (highp 4-component vector of float)
+0:20          'foo' (highp float)
+0:22  Function Definition: foo2(vf4; (highp 4-component vector of float)
+0:22    Function Parameters: 
+0:22      'a' (in highp 4-component vector of float)
+0:24    Sequence
+0:24      Sequence
+0:24        move second child to first child (highp 4-component vector of float)
+0:24          'b' (highp 4-component vector of float)
+0:24          'a' (in highp 4-component vector of float)
+0:25      Branch: Return with expression
+0:25        'b' (highp 4-component vector of float)
+0:?   Linker Objects
+0:?     'foo' (highp float)
+0:?     'gl_VertexID' (gl_VertexId highp int)
+0:?     'gl_InstanceID' (gl_InstanceId highp int)
+
+
+Linked vertex stage:
+
+
+
