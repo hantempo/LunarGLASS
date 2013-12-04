@@ -1,5 +1,6 @@
 *.o
 Install/Linux/glslangValidator
+Install/Linux/libglslang.so
 OGLCompilersDLL/depend
 OGLCompilersDLL/libInitializeDll.a
 StandAlone/glslangValidator
