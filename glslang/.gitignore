@@ -1,0 +1,15 @@
+*.o
+Install/Linux/glslangValidator
+OGLCompilersDLL/depend
+OGLCompilersDLL/libInitializeDll.a
+StandAlone/glslangValidator
+Test/glslangValidator
+Test/libglslang.so
+glslang/GenericCodeGen/libCodeGen.a
+glslang/MachineIndependent/gen_glslang_tab.cpp
+glslang/MachineIndependent/glslang.output
+glslang/MachineIndependent/glslang_tab.cpp.h
+glslang/MachineIndependent/lib/
+glslang/MachineIndependent/preprocessor/libPreprocessor.a
+glslang/OSDependent/Linux/depend
+glslang/OSDependent/Linux/libOssource.a
