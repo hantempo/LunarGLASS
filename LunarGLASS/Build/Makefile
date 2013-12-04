@@ -3,7 +3,7 @@
 CORE := ../Core
 GLSLANG := ../../glslang/
 LLVM := $(CORE)/LLVM/llvm-3.2.src/
-LLVMCONFIG := $(LLVM)/build/Debug+Asserts/bin/llvm-config
+LLVMCONFIG := $(LLVM)/build/Release+Asserts/bin/llvm-config
 
 glslang_INCLUDES := \
 	-I$(GLSLANG)/glslang \
@@ -49,12 +49,14 @@ glslang_SOURCES := \
     ../../glslang/glslang/MachineIndependent/parseConst.cpp \
     ../../glslang/glslang/MachineIndependent/ParseHelper.cpp \
     ../../glslang/glslang/MachineIndependent/PoolAlloc.cpp \
-    ../../glslang/glslang/MachineIndependent/QualifierAlive.cpp \
     ../../glslang/glslang/MachineIndependent/RemoveTree.cpp \
     ../../glslang/glslang/MachineIndependent/ShaderLang.cpp \
     ../../glslang/glslang/MachineIndependent/SymbolTable.cpp \
     ../../glslang/glslang/MachineIndependent/Versions.cpp \
     ../../glslang/glslang/MachineIndependent/Scan.cpp \
+    ../../glslang/glslang/MachineIndependent/limits.cpp \
+    ../../glslang/glslang/MachineIndependent/linkValidate.cpp \
+    ../../glslang/glslang/MachineIndependent/reflection.cpp \
     ../../glslang/glslang/OSDependent/Linux/ossource.cpp \
     ../../glslang/glslang/MachineIndependent/preprocessor/Pp.cpp \
     ../../glslang/glslang/MachineIndependent/preprocessor/PpAtom.cpp \

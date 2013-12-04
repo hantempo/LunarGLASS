@@ -167,8 +167,7 @@ function showHelp {
     echo "$USAGE"
 }
 
-# Default is for windows
-RUNCMD=../Build/Debug/glsl2.exe
+RUNCMD=../Build/Debug/glslang
 OPTIONS=(-d -n)
 TGSI_OP="--tgsi"
 GLSL_OP="--glsl"
