@@ -54,7 +54,7 @@ class TLiveTraverser;
 // Data needed for just a single object at the granularity exchanged by the reflection API
 class TObjectReflection {
 public:
-    TObjectReflection(const TString& pName, int pOffset, int pGLDefineType, int pSize, int pIndex) : 
+    TObjectReflection(const TString& pName, int pOffset, int pGLDefineType, int pSize, int pIndex) :
         name(pName), offset(pOffset), glDefineType(pGLDefineType), size(pSize), index(pIndex) { }
     void dump() const { printf("%s: offset %d, type %x, size %d, index %d\n", name.c_str(), offset, glDefineType, size, index); }
     TString name;
@@ -85,7 +85,7 @@ public:
 
     // for mapping a block index to the block's description
     int getNumUniformBlocks() const { return indexToUniformBlock.size(); }
-    const TObjectReflection& getUniformBlock(int i) const 
+    const TObjectReflection& getUniformBlock(int i) const
     {
         if (i >= 0 && i < (int)indexToUniformBlock.size())
             return indexToUniformBlock[i];
@@ -94,7 +94,7 @@ public:
     }
 
     // for mapping any name to its index (both block names and uniforms names)
-    int getIndex(const char* name) const 
+    int getIndex(const char* name) const
     {
         TNameToIndex::const_iterator it = nameToIndex.find(name);
         if (it == nameToIndex.end())
@@ -115,6 +115,9 @@ protected:
     TNameToIndex nameToIndex;        // maps names to indexes; can hold all types of data: uniform/buffer and which function names have been processed
     TMapIndexToReflection indexToUniform;
     TMapIndexToReflection indexToUniformBlock;
+
+    TMapIndexToReflection indexToVaryingIn;
+    TMapIndexToReflection indexToVaryingOut;
 };
 
 } // end namespace glslang

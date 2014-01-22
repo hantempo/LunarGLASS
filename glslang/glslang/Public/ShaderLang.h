@@ -329,6 +329,7 @@ public:
 
     // Reflection Interface
     bool buildReflection();                          // call first, to do liveness analysis, index mapping, etc.; returns false on failure
+
     int getNumLiveUniformVariables();                // can be used for glGetProgramiv(GL_ACTIVE_UNIFORMS)
     int getNumLiveUniformBlocks();                   // can be used for glGetProgramiv(GL_ACTIVE_UNIFORM_BLOCKS)
     const char* getUniformName(int index);           // can be used for "name" part of glGetActiveUniform()
@@ -339,6 +340,7 @@ public:
     int getUniformType(int index);                   // can be used for glGetActiveUniformsiv(GL_UNIFORM_TYPE)
     int getUniformBufferOffset(int index);           // can be used for glGetActiveUniformsiv(GL_UNIFORM_OFFSET)
     int getUniformArraySize(int index);              // can be used for glGetActiveUniformsiv(GL_UNIFORM_SIZE)
+
     void dumpReflection();
 
 protected:

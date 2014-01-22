@@ -494,7 +494,7 @@ protected:
 class TIntermOperator : public TIntermTyped {
 public:
     TIntermOperator* getAsOperator() { return this; }
-    TOperator getOp() { return op; }
+    TOperator getOp() const { return op; }
     bool modifiesState() const;
     bool isConstructor() const;
     virtual bool promote() { return true; }
