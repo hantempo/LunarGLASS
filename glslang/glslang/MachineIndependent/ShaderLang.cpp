@@ -1109,6 +1109,16 @@ int TProgram::getUniformType(int index)              { return reflection->getUni
 int TProgram::getUniformBufferOffset(int index)      { return reflection->getUniform(index).offset; }
 int TProgram::getUniformArraySize(int index)         { return reflection->getUniform(index).size; }
 
+int TProgram::getNumVaryingIns() const { return reflection->getNumVayingIns(); }
+const char* TProgram::getVaryingInName(int index) const { return reflection->getVaryingIn(index).name.c_str(); }
+int TProgram::getVaryingInType(int index) const { return reflection->getVaryingIn(index).glDefineType; }
+int TProgram::getVaryingInArraySize(int index) const { return reflection->getVaryingIn(index).size; }
+
+int TProgram::getNumVaryingOuts() const { return reflection->getNumVayingOuts(); }
+const char* TProgram::getVaryingOutName(int index) const { return reflection->getVaryingOut(index).name.c_str(); }
+int TProgram::getVaryingOutType(int index) const { return reflection->getVaryingOut(index).glDefineType; }
+int TProgram::getVaryingOutArraySize(int index) const { return reflection->getVaryingOut(index).size; }
+
 void TProgram::dumpReflection()                      { reflection->dump(); }
 
 } // end namespace glslang

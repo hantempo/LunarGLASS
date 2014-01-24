@@ -74,7 +74,7 @@ public:
     bool addStage(EShLanguage, const TIntermediate&);
 
     // for mapping a uniform index to a uniform object's description
-    int getNumUniforms() { return indexToUniform.size(); }
+    int getNumUniforms() const { return indexToUniform.size(); }
     const TObjectReflection& getUniform(int i) const
     {
         if (i >= 0 && i < (int)indexToUniform.size())
@@ -89,6 +89,24 @@ public:
     {
         if (i >= 0 && i < (int)indexToUniformBlock.size())
             return indexToUniformBlock[i];
+        else
+            return badReflection;
+    }
+
+    int getNumVayingIns() const { return indexToVaryingIn.size(); }
+    const TObjectReflection& getVaryingIn(int i) const
+    {
+        if (i >= 0 && i < (int)indexToVaryingIn.size())
+            return indexToVaryingIn[i];
+        else
+            return badReflection;
+    }
+
+    int getNumVayingOuts() const { return indexToVaryingOut.size(); }
+    const TObjectReflection& getVaryingOut(int i) const
+    {
+        if (i >= 0 && i < (int)indexToVaryingOut.size())
+            return indexToVaryingOut[i];
         else
             return badReflection;
     }

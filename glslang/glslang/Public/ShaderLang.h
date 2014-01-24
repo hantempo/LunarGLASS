@@ -341,6 +341,16 @@ public:
     int getUniformBufferOffset(int index);           // can be used for glGetActiveUniformsiv(GL_UNIFORM_OFFSET)
     int getUniformArraySize(int index);              // can be used for glGetActiveUniformsiv(GL_UNIFORM_SIZE)
 
+    int getNumVaryingIns() const;
+    const char* getVaryingInName(int index) const;
+    int getVaryingInType(int index) const;
+    int getVaryingInArraySize(int index) const;
+
+    int getNumVaryingOuts() const;
+    const char* getVaryingOutName(int index) const;
+    int getVaryingOutType(int index) const;
+    int getVaryingOutArraySize(int index) const;
+
     void dumpReflection();
 
 protected:
